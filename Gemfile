@@ -15,6 +15,7 @@ gem 'bootstrap_sb_admin_base_v2'
 gem 'jquery-rails'
 
 gem 'rails-assets-bootstrap', '3.3.7', source: 'https://rails-assets.org'
+gem 'rails-assets-notifyjs', source: 'https://rails-assets.org'
 gem 'sqlite3'
 # Use Puma as the app server
 gem 'puma', '~> 3.11'
