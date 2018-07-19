@@ -17,7 +17,7 @@ Rails.application.configure do
   config.consider_all_requests_local = true
 
 
-  config.i18n.available_locales = ['pt-BR', :de]
+  config.i18n.available_locales = ['pt-BR', :en]
 
   # Enable/disable caching. By default caching is disabled.
   # Run rails dev:cache to toggle caching.

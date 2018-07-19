@@ -9,6 +9,7 @@ gem 'rails-i18n', '~> 5.1' # For 5.0.x, 5.1.x and 5.2.x
 gem 'foreman'
 gem 'devise'
 gem 'devise-i18n'
+gem 'faker'
 #Rails gem do tema de administração baseado em Bootstrap SB Admin 2. 
 gem 'bootstrap_sb_admin_base_v2'
 
@@ -61,6 +62,7 @@ group :development do
   gem 'spring-watcher-listen', '~> 2.0.0'
   #Gerar diagramas de relações entre entidades para aplicações Rails 
   gem 'rails-erd'
+
 end
 
 
