@@ -1,11 +1,18 @@
 class Backoffice::AdminsController < BackofficeControle
 before_action :set_admin	, only: [:edit, :update, :destroy]
+after_action :verify_authorized, only: :new
+after_action :verify_policy_scoped, only: :index
   def index
-  	@admins = Admin.all
+  	#@admins = Admin.all
+    #@admins = Admin.with_restricted_access
+    @admins = policy_scope(Admin)
+
+
   end
 
   def new
     @admin = Admin.new
+    authorize @admin
   end
 
   def create 
@@ -21,14 +28,7 @@ before_action :set_admin	, only: [:edit, :update, :destroy]
   end
 
   def update
-  	passwd = params[:admin][:password]
-  	passwd_confirmation = params[:admin][:password_confirmation]
-
-  	if passwd.blank? && passwd_confirmation.blank?
-  		params[:admin].delete(:password)
-  		params[:admin].delete(:password_confirmation)
-  	end
-
+  	
     if @admin.update(params_admin)
        redirect_to backoffice_admins_path, notice: "O Administrador (#{@admin.email}) foi atualizado com sucesso!"
     else
@@ -47,6 +47,14 @@ before_action :set_admin	, only: [:edit, :update, :destroy]
 
 private
   def params_admin
+    passwd = params[:admin][:password]
+    passwd_confirmation = params[:admin][:password_confirmation]
+
+    if passwd.blank? && passwd_confirmation.blank?
+      params[:admin].delete(:password)
+      params[:admin].delete(:password_confirmation)
+    end
+
     params.require(:admin).permit(:name, :email, :password, :password_confirmation)
   end
 

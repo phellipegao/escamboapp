@@ -3,9 +3,12 @@
 <div class="panel panel-default">
     <div class="panel-heading">
         Listando Administradores
-        <%= link_to new_backoffice_admin_path,class: "btn btn-success btn-circle pull-right", style: "margin-top: -5px" do %>
-            <i class="fa fa-plus"></i>
-        <% end -%>
+
+        <% if policy(@admins).new?%>
+            <%= link_to new_backoffice_admin_path,class: "btn btn-success btn-circle pull-right", style: "margin-top: -3px" do %>
+                <i class="fa fa-plus"></i>
+            <% end -%> 
+        <% end -%>  
         
     </div>
     <!-- /.panel-heading -->
@@ -16,7 +19,8 @@
                     <tr>
                         <th>#</th>
                         <th>Nome</th>
-                        <th>Email</th>   
+                        <th>Email</th> 
+                        <th>Tipo de Acesso</th>  
                         <th></th>                                     
                     </tr>
                 </thead>
@@ -26,6 +30,8 @@
                         <td><%= admin.id %></td>
                         <td><%= admin.name %></td>
                         <td><%= admin.email %></td>
+                        <td><%= admin.role_i18n %></td>
+
                         <td style="width: 120px"> 
                             <%= link_to edit_backoffice_admin_path(admin), class: "btn btn-primary btn-circle" do %>
                                 <i class="fa fa-edit"></i>

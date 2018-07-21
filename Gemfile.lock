@@ -77,6 +77,8 @@ GEM
     devise-i18n (1.6.4)
       devise (>= 4.4)
     dotenv (0.7.0)
+    enum_help (0.0.17)
+      activesupport (>= 3.0.0)
     erubi (1.7.1)
     execjs (2.7.0)
     faker (1.9.1)
@@ -121,6 +123,8 @@ GEM
       mini_portile2 (~> 2.3.0)
     orm_adapter (0.5.0)
     puma (3.11.4)
+    pundit (1.1.0)
+      activesupport (>= 3.0.0)
     rack (2.0.5)
     rack-test (1.0.0)
       rack (>= 1.0, < 3)
@@ -227,12 +231,14 @@ DEPENDENCIES
   coffee-rails (~> 4.2)
   devise
   devise-i18n
+  enum_help
   faker
   foreman
   jbuilder (~> 2.5)
   jquery-rails
   listen (>= 3.0.5, < 3.2)
   puma (~> 3.11)
+  pundit
   rails (~> 5.2.0)
   rails-assets-bootbox.js!
   rails-assets-bootstrap (= 3.3.7)!
